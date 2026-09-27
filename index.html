@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#101a22" />
+  <title>Boxer camper layout</title>
+  <link rel="stylesheet" href="./style.css" />
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <main class="app">
+    <div id="viewport" role="img" aria-label="Interactive 3D view of the Boxer van interior and a three-panel sofa bed"></div>
+
+    <header class="masthead">
+      <span class="eyebrow">Campervan layout study</span>
+      <h1>Peugeot Boxer <span>L1H1 · 2017</span></h1>
+      <p>Rotate the van to explore the 1900 mm bed and its sofa layout.</p>
+    </header>
+
+    <section class="controls" aria-label="Viewer controls">
+      <div class="control-label">Furniture position</div>
+      <div class="segmented" role="group" aria-label="Furniture position">
+        <button id="bedButton" class="active" type="button" aria-pressed="true">Open bed</button>
+        <button id="sofaButton" type="button" aria-pressed="false">Sofa</button>
+      </div>
+      <div class="control-label view-label">Camera</div>
+      <div class="views" role="group" aria-label="Camera view">
+        <button type="button" data-view="iso">3D</button>
+        <button type="button" data-view="top">Top</button>
+        <button type="button" data-view="side">Side</button>
+      </div>
+      <label class="outline-toggle"><input id="outlineToggle" type="checkbox" checked /> Van outlines</label>
+    </section>
+
+    <aside class="facts" aria-live="polite">
+      <div><span class="fact-label">Surface</span><strong>1900 × 1650 <small>mm</small></strong></div>
+      <div><span class="fact-label">Timber top</span><strong>420 <small>mm from floor</small></strong></div>
+      <div><span class="fact-label">Position</span><strong id="modeFact">Open bed</strong></div>
+    </aside>
+
+    <footer class="footnote">
+      <span>Drag to rotate · Scroll or pinch to zoom · Right-drag to pan</span>
+      <span>Simple planning view · Bed construction and fittings are not shown</span>
+    </footer>
+    <div id="error" class="error" hidden></div>
+  </main>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
